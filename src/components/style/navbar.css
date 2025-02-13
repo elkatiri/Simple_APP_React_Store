@@ -1,0 +1,229 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@500&family=Poppins:wght@400&display=swap');
+/* active link */
+.navbar .menu li a.active{
+  color:rgb(218, 130, 15);
+}
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: #f5f5f5;
+  padding: 1px 20px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  position: sticky;
+  top: 0;
+  position: relative;
+  z-index: 1000;
+}
+
+.navbar .logo {
+  display: flex;
+  align-items: center;
+}
+
+.navbar .logo img {
+  width: 50px;
+  height: 32px;
+  margin-right: 10px;
+}
+
+.navbar .logo h1 {
+  font-size: 34px;
+  color: #000;
+  font-family: 'Montserrat', sans-serif;
+}
+
+.navbar .menu {
+  display: flex;
+  list-style: none;
+  gap: 75px;
+}
+
+.navbar .menu li a {
+  text-decoration: none;
+  color: #000;
+  font-size: 16px;
+  font-weight: 500;
+  transition: color 0.3s ease;
+  font-family: 'Poppins', sans-serif;
+}
+.navbar .icons {
+  display: flex;
+  align-items: center;
+  gap: 45px;
+}
+.navbar .icons .icon {
+  font-size: 1.2rem;
+  color: #333;
+  cursor: pointer;
+  transition: color 0.3s ease;
+}
+.user-container{
+  display:flex;
+  gap: 20px;
+  align-items: center;
+}.user-container span{
+  color:#B88E2F;
+  font-size: 1.3rem;
+  font-weight:500;
+}.user-container button{
+    padding: 8px 15px;
+    background: #B88E2F;
+    color: #000;
+    border: solid 1px #B88E2F;
+    border-radius: 18px;
+    font-size: 16px;
+    font-weight: 600;
+    cursor: pointer;
+    color: #fff;
+}.user-container button:hover{
+  opacity:.9}
+.cart-container {
+  position: relative;
+  display: inline-block;
+}
+
+.cart-count {
+  position: absolute;
+  top: 30px;
+  right: 10px;
+  width: 16px;
+  height: 16px;
+  background-color:rgb(218, 130, 15);
+  border-radius: 50%;
+  font-size: 12px;
+  color: #fff;
+  font-weight: bold;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.navbar .icons .icon:hover {
+  color: rgb(218, 130, 15);
+}
+.search-input {
+  display: flex;
+  position: absolute;
+  bottom:1.3rem;
+  z-index:2025;
+  left:72%;
+  padding: 15px;
+  border: 1px solid rgb(218, 130, 15);
+  border-radius: 10px;
+  font-size: 14px;
+  width: 200px;
+  transition: width 0.3s ease-in-out;
+}
+
+
+.search-input{
+  outline: none;
+}
+/* shooping-card */
+@keyframes fadeRight {
+  0% {
+    opacity: 0;
+    transform: translateX(100%);
+  }
+
+  100% {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+.shopping-cart{
+  position: absolute;
+  top:0;
+  right:0;
+  width:25%;
+  background-color: #FFFFFF;
+  border-radius: 14px 0 0 14px;
+  animation:fadeRight .7s ease-in-out;
+  border:1px solid #6e6e6e;
+}
+.shopping-cart-header{
+  display: flex;
+  justify-content: space-between;
+  padding: 1rem 2rem;
+  align-items: center;
+}.shopping-cart-header::after {
+  content: "";
+  position: absolute;
+  top:80px;
+  width: 80%;
+  height: 1px;
+  background-color: #060606;
+}
+.shopping-cart-header h1{
+  font-size: 24px;
+  font-weight:700;
+  font-family:inheret;
+  text-transform: capitalize;
+}
+.ShoppingBag{
+  color: #FAA96C;
+  cursor: pointer;
+} 
+.shopping-cart-container {
+  max-width: 400px;
+  margin: auto;
+}
+
+.shopping-cart-element {
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  padding: 10px;
+  border-bottom: 1px solid #ddd;
+}
+.shopping-cart-element p:first-of-type{
+  text-wrap: wrap;
+}
+.shopping-cart-element img {
+  width: 50px;
+  height: 50px;
+  object-fit: cover;
+  border-radius: 5px;
+}
+.remove-btn{
+  background: none;
+  border: none;
+  padding: 0;
+  cursor: pointer;
+}
+.empty-cart {
+  text-align: center;
+  color: #575757;
+  margin-top: 20px;
+}
+.shopping-totale{
+  margin-top: 3rem;
+  display:flex;
+  align-items: center;
+  justify-content: space-around;
+}.shopping-totale p{
+  font-weight: bold;
+  font-size:20px;
+  color:rgb(218, 130, 15);
+}
+.shopping-buttons{
+  display:flex;
+  gap:1rem;
+  align-items:center;
+  margin-left: 2rem;
+}.shopping-buttons button{
+  padding:10px 20px;
+  margin-bottom: 2rem;
+  border-radius: 17px;
+  color:#060606;
+  font-weight:600;
+  background-color:  transparent;
+  outline:none;
+  border:1px solid #FAA96C;
+  cursor: pointer;
+
+}
+.shopping-buttons button:hover{
+  background-color: #FAA96C;
+  color:#FFFFFF;
+}

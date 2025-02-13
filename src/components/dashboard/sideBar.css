@@ -1,0 +1,63 @@
+
+.sideBar {
+    display: flex;
+    height: 100vh;
+    border-radius: 18px;
+    width: 160px;
+    background-color: #F9F1E7;
+    padding: 20px;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    position: fixed;
+}
+div {
+    transition: background-color 0.8s linear ease-in-out;
+}
+.sideBarMenu{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    height: 58%;
+    gap: 2rem;
+}.top-img{
+    margin-bottom:2rem;
+}
+.dashbord {
+    font-size: 1.5rem;
+    font-weight: 500;
+    color:#2A4178;
+}
+.dashbord img {
+    width: 18px;
+    margin-right: 4px;
+}
+.sideBarMenu div, .logout{
+    width: 80px;
+    height: 80px;
+    margin-top: .5rem;
+    padding: 10px 20px;
+    text-align: center;
+    border-radius: 26px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    justify-content: center;
+    align-items: center;
+} a{
+    text-decoration: none;
+    color:#2A4178;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 8px;
+    text-align:center;
+    font-weight: 600;
+}a img{
+    margin-right: 3px;
+    width: 20px;
+}
+div.active{
+    background-color: #FFD7A5;
+}
+

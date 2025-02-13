@@ -1,0 +1,50 @@
+.containerDashbord{
+    padding: 2rem 1rem;
+    background-color:#FFFFFF;
+    box-sizing: border-box;
+    margin-left: 200px;
+
+}.welcome{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.welcome img{
+    margin-right: 3rem;
+}
+.generalInfo{
+    display: flex;
+}.info{
+        width: 300px;
+        height: 100px;
+        background-color: blueviolet;
+        margin-right:1rem ;
+        padding:30px;
+        border-radius: 15px;
+        font-size: 20px;
+        font-weight: 600;
+        color: #FFFFFF;
+        position: relative;
+}
+.info span{
+    position: absolute;
+    font-size: 3rem;
+    font-weight: 700;
+    color: #FFFFFF;
+    right: 20px;
+    bottom: 20px;
+}
+.shipped{
+    background: linear-gradient(to right, #6BAAFC, #305FEC);
+}
+.Pending{
+background: linear-gradient(to right, #EF5E7A, #D35385);
+}
+.newOrder{
+    background: linear-gradient(to right, #D623FE, #A530F2);
+}
+.info img{
+    position: absolute;
+    bottom: 4px;
+    left: 4px;
+} 

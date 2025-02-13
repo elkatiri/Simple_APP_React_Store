@@ -1,0 +1,64 @@
+/* Header component styles */
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@500&family=Poppins:wght@400&display=swap');
+
+.header {
+    position: relative;
+    overflow-x: hidden;
+}
+
+.header-img {
+    width: 100%;
+    height: auto;
+    object-fit: cover;
+}
+
+.header-content {
+    position: absolute;
+    top: 40%;
+    right:-24%;
+    transform: translate(-50%, -50%);
+    text-align: left;
+    width:45%;
+    background-color: #FFF3E3;
+    padding: 40px;
+    border-radius: 10px;
+}
+
+.header-content h3 {
+    font-size: 16px;
+    margin: 0;
+    color: #000;
+    font-family: 'Poppins', sans-serif;
+    font-weight: 600;
+}
+
+.header-content h1 {
+    font-size: 52px;
+    margin: 10px 0;
+    color: #B88E2F;
+    font-family: 'Poppins', sans-serif;
+    font-weight: bold;
+}
+
+.header-content p {
+    font-size: 16px;
+    margin: 10px 0;
+    width: 88%;
+    color: #000;
+}
+
+.cta-button {
+    background-color: #B88E2F;
+    color: white;
+    padding: 25px 72px;
+    font-size: 16px;
+    border: none;
+    font-family: 'Poppins', sans-serif;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.cta-button:hover {
+    background-color: #f5a623;
+}

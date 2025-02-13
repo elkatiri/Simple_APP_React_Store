@@ -1,0 +1,30 @@
+.shope_bg{
+        background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url(../../images/shopeBg.png);
+        background-size: cover;
+        background-position: center;
+        height: 50vh;
+        width: 100%;
+}
+.filter {
+background-color: #FAF3EA;
+display: flex;
+gap: 1rem;
+padding: 1rem 6rem;
+align-items: center;
+/* Centre verticalement */
+}
+
+.filter h2 {
+display: flex;
+align-items: center;
+/* Centre l'icône avec le texte */
+gap: 5px;
+/* Espace entre l’icône et le texte */
+}
+
+.filter .icon {
+margin-right: 0;
+/* Supprime la marge inutile */
+font-size: 20px;
+/* Ajuste la taille si nécessaire */
+}

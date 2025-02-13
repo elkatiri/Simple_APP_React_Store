@@ -1,0 +1,23 @@
+.BfrFooter_container{
+    display: flex;
+    gap: 2rem;
+    background-color: #FAF3EA;
+    padding: 4rem;
+    font-size:15px;
+    justify-content: space-between;
+}
+.container .BfrFooter_all{
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    text-align: start;
+}
+.BfrFooter_all img{
+    width: 50px;
+}
+.BfrFooter_all p{
+    font-weight:800;
+}
+.BfrFooter_all span{
+    color: #898989;
+}

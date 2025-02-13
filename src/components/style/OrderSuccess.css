@@ -1,0 +1,23 @@
+/* OrderSuccess.css */
+.order-success-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 30vh;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    z-index: 999;
+    /* Make sure it's on top of other content */
+}
+
+.order-success-message {
+    font-size: 1.4rem;
+    /* Huge font size */
+    color: green;
+    margin-top: 20px;
+    font-weight: bold;
+}

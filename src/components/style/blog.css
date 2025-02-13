@@ -1,0 +1,62 @@
+.blog{
+    width: 100%;
+}
+.bg_blog{
+    background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url(../../images/blogBg.png);
+    background-size: cover;
+    background-position: center;
+    height: 50vh;
+    width: 100%;
+}
+.body_blog{
+    margin-top: 4rem;
+    padding:4rem;
+    display: flex;
+    gap:5rem;
+}
+.images_blog{
+    text-align: center;
+    
+}.images_blog img{
+    margin: .5rem;
+}
+.blog_content{
+    width: 100%;
+}
+.blog-title{
+    font-size: 3rem;
+}.content{
+    line-height: 27px;
+    font-weight: 500;
+    font-size: 15px;
+}
+.content span{
+    font-size:20px;
+    font-weight: 600;
+}
+.shopNow{
+    padding: 6px 20px;
+    outline: none;
+    border: none;
+    width: 150x;
+    font-weight: bold;
+    height: 30px;
+    border-radius: 20px;
+    background-color: #F7D2C4;
+    margin:1rem 0;
+    text-transform: capitalize;
+    cursor: pointer;
+}
+.shopNow:hover{
+    opacity: .9;
+}
+.details{
+    font-weight: 600;
+}
+.details p{
+    font-size: 15px;
+}
+.details span{
+    margin-top: 1rem;
+    font-size: 20px;
+}

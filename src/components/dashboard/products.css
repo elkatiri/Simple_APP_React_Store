@@ -1,0 +1,36 @@
+.productContainer{
+    display:block;
+    width:83%;
+    overflow-x: hidden;
+    margin-left: 200px;
+    padding: 20px;
+}
+.welcome h1 span{
+    color: #2A4178;
+    text-transform:capitalize;
+}
+.productList{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+.productList h1{
+    color: #2A4178;
+    font-size: 2.5em;
+}
+.addProduct{
+    display: block !important;
+    width: 120px;
+    height: 40px;
+    padding: 5px 10px;
+    border-radius: 18px;
+    background-color:#FFD7A5 ;
+    margin-right: 2rem;
+    outline: none;
+    font-weight: 600;
+    border: 1px solid #FFD7A5;
+    cursor: pointer;
+}
+.addProduct:hover{
+    opacity: 0.9;
+}

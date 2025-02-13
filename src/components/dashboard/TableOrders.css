@@ -1,0 +1,62 @@
+table {
+    width: 98%;
+    border-collapse: collapse;
+    margin: 20px 0;
+    font-size: 16px;
+    text-align: left;
+}
+
+table thead tr {
+    background-color: #F9F1E7;
+    border-bottom: 2px solid #dddddd;
+}
+
+table th,
+table td {
+    padding: 12px;
+    border: 1px solid #dddddd;
+}
+
+table th {
+    background-color: #F9F1E7;
+    color: #8C7C7C;
+    font-weight: 500;
+}
+td,tr{
+    color:#000000;
+    font-weight: 700;
+}
+table tbody tr:nth-child(even) {
+    background-color: #f9f9f9;
+}
+
+table tbody tr:hover {
+    background-color: #f1f1f1;
+}
+
+table img {
+    display: block;
+    max-width: 200px;
+    height: auto;
+    border-radius: 4px;
+}
+/* Style the select element */
+.status-select {
+    padding: 5px;
+    font-size: 14px;
+    border-radius: 4px;
+    cursor: pointer;
+    width: 80%;
+    background-color: aqua;
+    outline: none;
+    font-weight: 700;
+    border-radius: 10px;
+    appearance: none;
+}
+
+.status-select option {
+    padding: 5px;
+    color: #000000;
+    font-weight: 700;
+}
+

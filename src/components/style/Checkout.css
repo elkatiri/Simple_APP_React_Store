@@ -1,0 +1,237 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@500&family=Poppins:wght@400&display=swap');
+
+.checkOut_container {
+  display: flex;
+  gap: 60px;
+  margin-top: 4rem;
+  padding: 0 20px;
+  font-family: 'Poppins', sans-serif;
+  justify-content: center;
+  position: relative;
+}
+.checkout_bg{
+      background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url(../../images/chechout.png);
+        background-size: cover;
+        background-position: center;
+        height: 50vh;
+        width: 100%;
+}
+.center_checkout{
+  display:flex;
+  justify-content: center;
+  align-items: center;
+  text-align:center;
+}
+.center_checkout img{
+  margin-top:3rem;
+}.checkout_bg nav ul {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.2rem;
+  /* Ajoute un espace entre les éléments */
+}
+.checkout_bg nav ul li {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  list-style: none;
+  font-weight: 700;
+}
+li span{
+  display: flex;
+}
+.checkout_bg nav ul li a {
+  color: #000;
+  font-size: 18px;
+  text-decoration: none;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}.checkout_bg nav ul li:last-child a {
+  font-weight: 500;
+  color: #1d1d1d;
+}
+.billing-details {
+  flex: 1;
+  margin-left: 200px;
+}
+.billing-details h1 {
+  margin-bottom: 40px;
+  font-weight: bold;
+}
+.billing-details label {
+  display: block;
+  margin-bottom: 16px;
+  font-size: 16px;
+  color: #000;
+}
+
+.billing-details input,
+.billing-details select,
+.billing-details textarea {
+  width: 453px;
+  height: 50px;
+  padding: 10px 17px;
+  border: 1px solid #d9d9d9;
+  border-radius: 10px;
+  margin-bottom: 30px;
+  font-size: 15px;
+  box-shadow: none;
+  font-family: 'poppins', sans-serif;
+  font-weight: 500;
+}
+
+.billing-details input:focus,
+.billing-details select:focus,
+.billing-details textarea:focus {
+  outline: none;
+  border-color: #B88E2F;
+}
+
+.billing-details .name-section {
+  display: flex;
+  gap: 20px;
+  margin-bottom: 20px;
+}
+
+.billing-details .name-section > div {
+  flex: 1;
+  padding: 0 5px;
+}
+
+.billing-details .name-section > div label {
+  display: block;
+}
+
+.billing-details .name-section > div input {
+  width: 200px;
+  height: 40px;
+}
+
+.billing-details textarea {
+  resize: vertical;
+  min-height: 120px;
+}
+
+.payement-info-section {
+  flex: 0 0 400px;
+  margin-right: 200px;
+}
+
+.payement-info-section .product-section {
+  padding: 30px;
+  border-radius: 10px;
+  margin-bottom: 30px;
+  border-bottom: 1px solid #e6e6e6;
+}
+
+.payement-info-section .product-section h2 {
+  font-size: 24px;
+  margin-bottom: 25px;
+  font-weight: 600;
+  font-family: 'poppins', sans-serif;
+}
+
+.payement-info-section .product-section .row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 15px 0;
+}
+
+.payement-info-section .product-section .row:last-child {
+  border-bottom: none;
+  margin-top: 10px;
+}
+
+.payement-info-section .product-section .row:last-child span {
+  font-size: 20px;
+  font-weight: 600;
+  color: #B88E2F;
+}
+
+.payement-info-section .product-section .row .column {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+  gap: 150px;
+}
+
+.payement-info-section .product-section .row label {
+  color: #333;
+  font-size: 16px;
+}
+
+.payement-info-section .product-section .row span {
+  color: #666;
+}
+
+.payement-info-section .payment-section {
+  padding: 30px;
+  border-radius: 10px;
+}
+
+.payement-info-section .payment-section .selected-payment {
+  font-weight: bold;
+}
+
+.payement-info-section .payment-section p {
+  color: #9F9F9F;
+  line-height: 1.6;
+  margin-bottom: 20px;
+}
+
+.payement-info-section .payment-section label {
+  display: block;
+  margin: 15px 0;
+  color: #9F9F9F;
+}
+
+.payement-info-section .payment-section label input[type="radio"] {
+  margin-right: 10px;
+}
+
+.payement-info-section .payment-section .privacy-notice {
+  font-size: 14px;
+  color: #000;
+  margin: 20px 0;
+}
+
+.payement-info-section .payment-section .privacy-notice span {
+  color: #000;
+  font-weight: bold;
+}
+
+.payement-info-section .payment-section .place-order-button {
+  width: 100%;
+  padding: 15px;
+  background: #B88E2F;
+  color: #000;
+  border: solid 1px #B88E2F;
+  border-radius: 18px;
+  font-size: 16px;
+  font-weight: 700;
+  cursor: pointer;
+  color:#fff;
+  transition: background-color 0.3s;
+}
+.payement-info-section .payment-section .place-order-button:hover {
+  opacity:.9;
+}
+
+@media (max-width: 768px) {
+  .container {
+    flex-direction: column;
+  }
+
+  .payement-section {
+    flex: 1;
+    width: 100%;
+  }
+
+  .billing-details .name-section {
+    flex-direction: column;
+    gap: 20px;
+  }
+}
