@@ -1,5 +1,5 @@
 table {
-    width: 98%;
+    width: 100%;
     border-collapse: collapse;
     margin: 20px 0;
     font-size: 16px;
@@ -14,7 +14,6 @@ table thead tr {
 table th,
 table td {
     padding: 12px;
-    border: 1px solid #dddddd;
 }
 
 table th {
@@ -27,14 +26,26 @@ td,
 tr {
     color: #000000;
     font-weight: 700;
+    
+}td{
+    max-width: 60px;
 }
-.actions{
+.table-container .actions{
     color: rgb(39, 39, 93);
     font-size: 22px;
     cursor: pointer;
-    text-align: center;
-}.actions:nth-child(1){
-    margin-right: 6px;
+    position:relative;
+}.action-icon{
+    position: absolute;
+    top:50%;
+    transform: translate(-50%, -50%);
+
+}
+.edit-icon {
+    left: 36%;
+}
+.delete-icon {
+    right: 34%;
 }
 
 table tbody tr:nth-child(even) {

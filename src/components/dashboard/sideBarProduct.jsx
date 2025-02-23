@@ -60,9 +60,9 @@ const ProductSidebar = ({ initialData = null, onClose, onSave }) => {
      dataToSubmit.append("image", initialData.image);
    }
    //show the data in the console
-/*    dataToSubmit.forEach((value, key) => {
+   dataToSubmit.forEach((value, key) => {
      console.log(`${key}: ${value}`);
-   }); */
+   });
    onSave(dataToSubmit);
    onClose();
  };
@@ -75,9 +75,13 @@ const ProductSidebar = ({ initialData = null, onClose, onSave }) => {
         </button>
       </div>
       <form className="sidebar-form" encType="multipart/form-data">
-        {formData.image&&(
+        {formData.image && (
           <img
-            src={`http://localhost:8000/storage/${formData.image}`}
+            src={
+              typeof formData.image === "string"
+                ? `http://localhost:8000/storage/${formData.image}`
+                : URL.createObjectURL(formData.image)
+            }
             alt="Uploaded"
             className="styled-image"
           />
