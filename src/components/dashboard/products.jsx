@@ -5,6 +5,7 @@ import axios from "axios";
 import "./products.css";
 import ProductSidebar from "./sideBarProduct";
 import SideBar from "./sideBar";
+import Spinner from "../spinner";
 
 export default function Products({ userName }) {
   const [products, setProducts] = useState([]);
@@ -12,9 +13,11 @@ export default function Products({ userName }) {
   const [isSidebarOpen, setIsSidebarOpen] = useState(false);
   const [currentProduct, setCurrentProduct] = useState(null);
   const [error, setError] = useState(null);
+  const [loading, setLoading] = useState(false); // New loading state
 
   // Fetch products from API
   const fetchProducts = async () => {
+    setLoading(true); // Start loading
     try {
       if (!token) {
         throw new Error("Token not available");
@@ -24,11 +27,12 @@ export default function Products({ userName }) {
       });
       setProducts(response.data);
     } catch (error) {
-      setError("Error fetching products: " + token);
+      setError("Error fetching products: " + error.message);
+    } finally {
+      setLoading(false); // End loading
     }
   };
 
-  // Initialize token from localStorage
   useEffect(() => {
     const storedToken = localStorage.getItem("token");
     if (storedToken) {
@@ -38,26 +42,23 @@ export default function Products({ userName }) {
     }
   }, []);
 
-  // Fetch products only when token is available
   useEffect(() => {
     if (token) {
       fetchProducts();
     }
   }, [token]);
 
-  // Handle delete of a product
   const handleDelete = async (id) => {
     try {
       await axios.delete(`http://127.0.0.1:8000/api/products/${id}`, {
         headers: { Authorization: `Bearer ${token}` },
       });
-      fetchProducts(); // Refresh products
+      fetchProducts();
     } catch (error) {
       setError("Error deleting product: " + error.message);
     }
   };
 
-  // Open sidebar to update a product
   const handleUpdate = async (id) => {
     try {
       const response = await axios.get(
@@ -73,65 +74,58 @@ export default function Products({ userName }) {
     }
   };
 
-  // Open sidebar to add a new product
   const handleAddProduct = () => {
-    setCurrentProduct(null); // Clear the form for a new product
+    setCurrentProduct(null);
     setIsSidebarOpen(true);
   };
 
-  // Handle saving a product (both adding and updating)
   const handleSaveProduct = async (productData) => {
-    //debuging the product data
-
+    setLoading(true); // Start loading
     try {
       if (!token) {
         throw new Error("Token not available");
       }
 
-      // If currentProduct is set, we are updating a product
-      if (currentProduct) {
-        //Debeguing
-        productData.forEach((value, key) => {
-          console.log(`${key}: ${value}`);
-        });
+      // Important: Do not convert FormData to JSON
+      const config = {
+        headers: {
+          Authorization: `Bearer ${token}`,
+          "Content-Type": "multipart/form-data", // Important for file upload
+        },
+      };
 
-        const response = await axios.put(
+      let response;
+      if (currentProduct) {
+        // For update, use POST method with _method: PUT for Laravel
+        productData.append("_method", "PUT");
+        response = await axios.post(
           `http://127.0.0.1:8000/api/products/${currentProduct.id}`,
           productData,
-          {
-            headers: {
-              Authorization: `Bearer ${token}`,
-              "Content-Type": "application/json",
-            },
-          }
+          config
         );
-        if (!response.data) {
-          throw new Error("Failed to update product");
-        }
       } else {
-        // Otherwise, we are adding a new product
-        //debuging:
-        productData.forEach((value, key) => {
-          console.log(`${key}: ${value}`);
-        });
-        const response = await axios.post(
+        response = await axios.post(
           "http://127.0.0.1:8000/api/products",
           productData,
-          {
-            headers: { Authorization: `Bearer ${token}` },
-            "Content-Type": "application/json",
-          }
+          config
         );
-        if (!response.data) {
-          throw new Error("Failed to add product");
-        }
       }
 
-      // Reload products after save and close the sidebar
+      if (!response.data) {
+        throw new Error("Failed to save product");
+      }
+
       fetchProducts();
       setIsSidebarOpen(false);
+      setError(null); // Clear any previous errors
     } catch (error) {
-      setError("Error saving product: " + error.message);
+      console.error("Full error:", error);
+      setError(
+        "Error saving product: " +
+          (error.response?.data?.message || error.message)
+      );
+    } finally {
+      setLoading(false); // End loading
     }
   };
 
@@ -153,11 +147,15 @@ export default function Products({ userName }) {
             </button>
           </div>
           {error && <p style={{ color: "red" }}>{error}</p>}
-          <TableProducts
-            products={products}
-            onUpdate={handleUpdate}
-            onDelete={handleDelete}
-          />
+          {loading ? ( // Show spinner while loading
+            <Spinner />
+          ) : (
+            <TableProducts
+              products={products}
+              onUpdate={handleUpdate}
+              onDelete={handleDelete}
+            />
+          )}
           {isSidebarOpen && (
             <ProductSidebar
               onClose={() => setIsSidebarOpen(false)}

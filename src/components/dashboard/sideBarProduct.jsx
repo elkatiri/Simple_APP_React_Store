@@ -7,7 +7,8 @@ const ProductSidebar = ({ initialData = null, onClose, onSave }) => {
     description: initialData?.description || "",
     price: initialData?.price || "",
     quantity: initialData?.quantity || "",
-    image: initialData?.image || null,
+    image: null,
+    imagePreview: initialData?.image ? `http://localhost:8000/storage/${initialData.image}` : null
   });
 
   useEffect(() => {
@@ -16,7 +17,8 @@ const ProductSidebar = ({ initialData = null, onClose, onSave }) => {
       description: initialData?.description || "",
       price: initialData?.price || "",
       quantity: initialData?.quantity || "",
-      image: initialData?.image || null,
+      image: null,
+      imagePreview: initialData?.image ? `http://localhost:8000/storage/${initialData.image}` : null
     });
   }, [initialData]);
 
@@ -29,60 +31,62 @@ const ProductSidebar = ({ initialData = null, onClose, onSave }) => {
   };
 
   const handleFileChange = (e) => {
-    setFormData((prevData) => ({
-      ...prevData,
-      image: e.target.files[0],
-    }));
+    const file = e.target.files[0];
+    if (file) {
+      setFormData((prevData) => ({
+        ...prevData,
+        image: file,
+        imagePreview: URL.createObjectURL(file)
+      }));
+    }
   };
 
- const handleSubmit = () => {
-   // Validate required fields
-   if (
-     !formData.name ||
-     !formData.description ||
-     !formData.price ||
-     !formData.quantity
-   ) {
-     alert("Please fill out all fields.");
-     return;
-   }
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    
+    // Validate required fields
+    if (!formData.name || !formData.description || !formData.price || !formData.quantity) {
+      alert("Please fill out all required fields.");
+      return;
+    }
 
-   const dataToSubmit = new FormData();
-   dataToSubmit.append("name", formData.name);
-   dataToSubmit.append("description", formData.description);
-   dataToSubmit.append("price", formData.price);
-   dataToSubmit.append("quantity", formData.quantity);
-   // If a new image is selected, add it to the FormData
-   if (formData.image) {
-     dataToSubmit.append("image", formData.image);
-   } else if (initialData && initialData.image) {
-     // If no new image is selected, but an existing image is available, keep the old image.
-     dataToSubmit.append("image", initialData.image);
-   }
-   //show the data in the console
-   dataToSubmit.forEach((value, key) => {
-     console.log(`${key}: ${value}`);
-   });
-   onSave(dataToSubmit);
-   onClose();
- };
+    const dataToSubmit = new FormData();
+    dataToSubmit.append("name", formData.name);
+    dataToSubmit.append("description", formData.description);
+    dataToSubmit.append("price", formData.price);
+    dataToSubmit.append("quantity", formData.quantity);
+
+    // Handle image upload
+    if (formData.image) {
+      dataToSubmit.append("image", formData.image);
+    } else if (initialData?.image) {
+      // If updating and no new image selected, send the existing image path
+      dataToSubmit.append("current_image", initialData.image);
+    }
+
+    // For debugging
+    console.log("Form Data Contents:");
+    for (let pair of dataToSubmit.entries()) {
+      console.log(pair[0] + ': ' + pair[1]);
+    }
+
+    onSave(dataToSubmit);
+    onClose();
+  };
+
   return (
     <div className="sidebar">
       <div className="sidebar-header">
         <h2>{initialData ? "Edit Product" : "Add Product"}</h2>
-        <button onClick={onClose} className="close-btn">
+        <button type="button" onClick={onClose} className="close-btn">
           X
         </button>
       </div>
-      <form className="sidebar-form" encType="multipart/form-data">
-        {formData.image && (
+      <form className="sidebar-form" onSubmit={handleSubmit} encType="multipart/form-data">
+        {formData.imagePreview && (
           <img
-            src={
-              typeof formData.image === "string"
-                ? `http://localhost:8000/storage/${formData.image}`
-                : URL.createObjectURL(formData.image)
-            }
-            alt="Uploaded"
+            src={formData.imagePreview}
+            alt="Product preview"
             className="styled-image"
           />
         )}
@@ -102,8 +106,8 @@ const ProductSidebar = ({ initialData = null, onClose, onSave }) => {
           <textarea
             name="description"
             value={formData.description}
-            required
             onChange={handleChange}
+            required
           />
         </label>
         <label>
@@ -112,8 +116,10 @@ const ProductSidebar = ({ initialData = null, onClose, onSave }) => {
             type="number"
             name="price"
             value={formData.price}
-            required
             onChange={handleChange}
+            required
+            step="0.01"
+            min="0"
           />
         </label>
         <label>
@@ -124,6 +130,7 @@ const ProductSidebar = ({ initialData = null, onClose, onSave }) => {
             value={formData.quantity}
             onChange={handleChange}
             required
+            min="0"
           />
         </label>
         <div className="file-upload">
@@ -133,16 +140,17 @@ const ProductSidebar = ({ initialData = null, onClose, onSave }) => {
             id="file"
             onChange={handleFileChange}
             className="file-input"
+            accept="image/*"
           />
           <label htmlFor="file" className="file-label">
-            Choose an image
+            {formData.image ? 'Change image' : 'Choose an image'}
           </label>
         </div>
-        <button type="button" onClick={handleSubmit}>
+        <button type="submit">
           {initialData ? "Update Product" : "Add Product"}
         </button>
         <button type="button" className="close" onClick={onClose}>
-          close
+          Close
         </button>
       </form>
     </div>

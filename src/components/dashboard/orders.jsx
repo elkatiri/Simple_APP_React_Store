@@ -7,7 +7,7 @@ import { useEffect, useState } from "react";
 import axios from "axios";
 import TableOrders from "./TableOrders";
 import SideBar from "./sideBar";
-
+import Spinner from "../spinner"; 
 
 export default function Orders({ userName }) {
   const API_URL = "http://localhost:8000/api/orders";
@@ -16,9 +16,11 @@ export default function Orders({ userName }) {
   const [newOrders, setNewOrders] = useState([]);
   const [shippedCount, setShippedCount] = useState(0);
   const [pendingCount, setPendingCount] = useState(0);
+  const [loading, setLoading] = useState(false); // New loading state
 
   // Fetch all orders
   const fetchOrders = async () => {
+    setLoading(true); // Start loading
     try {
       if (!token) {
         throw new Error("Token not available");
@@ -32,6 +34,8 @@ export default function Orders({ userName }) {
       filterNewOrders(data);
     } catch (error) {
       console.error("Error fetching orders:", error);
+    } finally {
+      setLoading(false); // End loading
     }
   };
 
@@ -83,6 +87,7 @@ export default function Orders({ userName }) {
     setToken(localStorage.getItem("token"));
     fetchOrders();
   }, [token]);
+
   return (
     <>
       <SideBar />
@@ -110,7 +115,11 @@ export default function Orders({ userName }) {
             <img src={vector4} alt="vector4" />
           </div>
         </div>
-        <TableOrders orders={orders} onStatusChange={handleStatusChange} />
+        {loading ? ( // Show spinner while loading
+          <Spinner />
+        ) : (
+          <TableOrders orders={orders} onStatusChange={handleStatusChange} />
+        )}
       </div>
     </>
   );
