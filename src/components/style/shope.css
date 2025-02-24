@@ -1,9 +1,53 @@
-.shope_bg{
-        background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url(../../images/shopeBg.png);
+.shope_bg {
+        background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url(../../images/chechout.png);
         background-size: cover;
         background-position: center;
         height: 50vh;
         width: 100%;
+}
+.center_shope {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        text-align: center;
+}
+
+.center_shope img {
+        margin-top: 3rem;
+}
+
+.shope_bg nav ul {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 0.2rem;
+        padding: 0;
+}
+
+.shope_bg nav ul li {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        list-style: none;
+        font-weight: 700;
+}
+
+.shope_bg li a {
+        display: flex;
+}
+
+.shope_bg nav ul li a {
+        color: #000;
+        font-size: 18px;
+        text-decoration: none;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+}
+
+.shope_bg nav ul li:last-child a {
+        font-weight: 500;
+        color: #1d1d1d;
 }
 .filter {
 background-color: #FAF3EA;

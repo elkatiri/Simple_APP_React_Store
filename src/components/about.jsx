@@ -7,6 +7,9 @@ import time from "../images/time.png";
 import BfrFooter from "./bfr_footer";
 import Footer from "./footer";
 import Navbar from "./navbar";
+import { ChevronRight } from "lucide-react";
+import { Link } from "react-router-dom";
+import GR_contact from "../images/GR_contact.png"
 
 export default function About() {
   const [formData, setFormData] = useState({
@@ -46,7 +49,24 @@ export default function About() {
   return (
     <div className="container_about">
       <Navbar />
-      <div className="bg_about"></div>
+      <div className="contact_bg">
+        <div className="center_contact">
+          <img src={GR_contact} alt="contact Background" />
+        </div>
+        <nav>
+          <ul>
+            <li>
+              <Link to="/home">Home</Link>
+            </li>
+            <span>
+              <ChevronRight />
+            </span>
+            <li>
+              <Link to="/contact">Contact</Link>
+            </li>
+          </ul>
+        </nav>
+      </div>
       <div className="special_header">
         <h1>Get In Touch With Us</h1>
         <p>

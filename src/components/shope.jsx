@@ -5,11 +5,12 @@ import Navbar from "./navbar";
 import "./style/shope.css";
 import axios from "axios";
 import Creatable from "react-select/creatable";
-import { SlidersHorizontal } from "lucide-react";
+import { ChevronRight, SlidersHorizontal } from "lucide-react";
 import Spinner from "./spinner";
 import { useSelector, useDispatch } from "react-redux";
 import { addToCart, removeFromCart } from "./cartSlice";
-
+import { Link } from "react-router-dom";
+import GR_shop from "../images/GR_shop.png";
 export default function Shop() {
   const dispatch = useDispatch();
   const cart = useSelector((state) => state.cart);
@@ -84,7 +85,24 @@ export default function Shop() {
         cart={cart}
         removeFromCart={handelRemoveFromCart}
       />
-      <div className="shope_bg"></div>
+      <div className="shope_bg">
+        <div className="center_shope">
+          <img src={GR_shop} alt="shop Background" />
+        </div>
+        <nav>
+          <ul>
+            <li>
+              <Link to="/home">Home</Link>
+            </li>
+            <span>
+              <ChevronRight />
+            </span>
+            <li>
+              <Link to="/shop">Shop</Link>
+            </li>
+          </ul>
+        </nav>
+      </div>
       <div className="filter">
         <h2>
           <SlidersHorizontal size={25} strokeWidth={3} className="icon" />
@@ -101,13 +119,11 @@ export default function Shop() {
           ]}
         />
       </div>
-
       {loading ? (
         <Spinner />
       ) : (
         <ProductsList products={products} handelAddToCart={handelAddToCart} />
       )}
-
       <Footer />
     </>
   );

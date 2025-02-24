@@ -1,12 +1,57 @@
 .blog{
     width: 100%;
 }
-.bg_blog{
-    background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url(../../images/blogBg.png);
+.blog_bg {
+    background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url(../../images/chechout.png);
     background-size: cover;
     background-position: center;
     height: 50vh;
     width: 100%;
+}
+
+.center_blog {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+}
+
+.center_blog img {
+    margin-top: 3rem;
+}
+
+.blog_bg nav ul {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.2rem;
+    padding: 0;
+}
+
+.blog_bg nav ul li {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    list-style: none;
+    font-weight: 700;
+}
+
+.blog_bg li a {
+    display: flex;
+}
+
+.blog_bg nav ul li a {
+    color: #000;
+    font-size: 18px;
+    text-decoration: none;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.blog_bg nav ul li:last-child a {
+    font-weight: 500;
+    color: #1d1d1d;
 }
 .body_blog{
     margin-top: 4rem;

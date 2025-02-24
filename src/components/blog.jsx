@@ -10,12 +10,30 @@ import BfrFooter from "./bfr_footer";
 import Navbar from "./navbar";
 import Footer from "./footer";
 import { Link } from "react-router-dom";
-
+import { ChevronRight } from "lucide-react";
+import GR_blog from "../images/GR_blog.png";
 export default function Blog() {
   return (
     <div className="blog">
       <Navbar />
-      <div className="bg_blog"></div>
+      <div className="blog_bg">
+        <div className="center_blog">
+          <img src={GR_blog} alt="shop Background" />
+        </div>
+        <nav>
+          <ul>
+            <li>
+              <Link to="/home">Home</Link>
+            </li>
+            <span>
+              <ChevronRight />
+            </span>
+            <li>
+              <Link to="/about">Blog</Link>
+            </li>
+          </ul>
+        </nav>
+      </div>{" "}
       <div className="body_blog">
         <div className="images_blog">
           <img src={blog1} alt="image1"></img>

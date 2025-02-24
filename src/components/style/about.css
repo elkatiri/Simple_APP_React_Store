@@ -1,12 +1,57 @@
 .container_about{
     width:100%;
 }
-.bg_about{
-    background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url(../../images/about_bg.png);
+.contact_bg {
+    background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url(../../images/chechout.png);
     background-size: cover;
     background-position: center;
     height: 50vh;
     width: 100%;
+}
+
+.center_contact {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+}
+
+.center_contact img {
+    margin-top: 3rem;
+}
+
+.contact_bg nav ul {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.2rem;
+    padding: 0;
+}
+
+.contact_bg nav ul li {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    list-style: none;
+    font-weight: 700;
+}
+
+.contact_bg li a {
+    display: flex;
+}
+
+.contact_bg nav ul li a {
+    color: #000;
+    font-size: 18px;
+    text-decoration: none;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.contact_bg nav ul li:last-child a {
+    font-weight: 500;
+    color: #1d1d1d;
 }
 .special_header{
     margin: 4rem 0;
